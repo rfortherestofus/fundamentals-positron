@@ -1,0 +1,924 @@
+---
+title: Fundamentals of R
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: false
+    slide-number: false
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: false
+    transition: fade
+    code-line-numbers: false
+execute: 
+  message: false
+  warning: false
+  cache: false
+  echo: true
+  output: false
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+tbl-colwidths: [50,50]
+---
+
+
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(janitor)
+library(gt)
+library(gtExtras)
+
+penguins <- read_csv("penguins.csv")
+```
+
+```{r}
+#| echo: false
+rru_table <- function(df) {
+  df |>
+    gt() |>
+    tab_style(
+      style = cell_text(weight = "normal", size = px(30), color = "#404e6b"),
+      locations = cells_column_labels()
+    ) |>
+    tab_style(
+      style = cell_text(size = px(30), color = "#404e6b"),
+      locations = cells_body()
+    ) |>
+    gt_theme_538() |>
+    opt_table_font(
+      font = list(google_font("Inter"), default_fonts()),
+      weight = 400
+    ) |>
+    tab_options(
+      table.background.color = "transparent",
+      column_labels.background.color = "transparent",
+      table.width = pct(100),
+      heading.padding = px(10),
+      data_row.padding = px(10),
+      column_labels.border.bottom.color = "#404e6b"
+    )
+}
+```
+
+
+# Update Everything {.inverse}
+
+## Update Everything
+
+1. R
+
+1. Positron
+
+1. R Packages
+
+::: {.notes}
+- How to check version of R
+- How to check version of Positron
+- How to check versions of packages
+- Explain that updating R requires reinstall of packages
+:::
+
+## Your Turn {.your-turn}
+
+1. Update R
+
+1. Update Positron
+
+1. Update all packages using the Positron R Package Manager extension
+
+
+# Start a New Project {.inverse}
+
+## Your Turn {.your-turn}
+
+1. Create a new project in Positron
+
+1. Download data from [https://rfor.us/penguins](https://rfor.us/penguins)
+
+1. Copy the data into the Positron project
+
+1. Create a new R script file and add code to import your data (refer to Getting Started with R if necessary)
+
+1. Save your R script file
+
+# Data Wrangling and Analysis {.inverse}
+
+# The Tidyverse {.inverse}
+
+
+## Base R Code
+
+```{r}
+#| output: true
+#| eval: false
+mean(penguins$body_mass_g[penguins$year == 2007], na.rm = TRUE)
+```
+
+- Starts with function, data frame in parentheses
+
+- Uses dollar sign (`data$satisfaction_rating`) notation
+
+- Uses bracket (`[data$year==2019]`) notation
+
+- Repeats data frame name each time you call it
+
+## Tidyverse Code
+
+```{r}
+#| output: true
+#| eval: false
+
+penguins |>
+  filter(year == 2007) |>
+  drop_na(body_mass_g) |>
+  summarize(mean_body_mass = mean(body_mass_g))
+```
+
+- Nicely named functions because "the bottleneck in most data analysis is thinking time" - [The tidy tools manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html)
+
+- "Data frame first, data frame once" - [Alison Hill](https://ohsu-conj620.netlify.app/slides/cm012.html#20)
+
+- Uses the pipe (`|>`) to chain together a series of functions
+
+# Pipes {.inverse}
+
+## Code Without Pipes
+
+```{r}
+select(
+  mutate(penguins, body_mass_lbs = body_mass_g / 453.6),
+  body_mass_lbs
+)
+```
+
+## Code With Pipes
+
+
+```{r}
+penguins |>
+  mutate(body_mass_lbs = body_mass_g / 453.6) |>
+  select(body_mass_lbs)
+```
+
+## Pipes = "Then"
+
+Every time you see a pipe, replace it with the word "then"
+
+---
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<p style="font-size: 200px; text-align: center;">
+`|>`
+</p>
+
+<p style="text-align: center;">
+Native pipe
+</p>
+:::
+
+::: {.column width="50%"}
+<p style="font-size: 200px; text-align: center;">
+`%>%`
+</p>
+
+<p style="text-align: center;">
+Tidyverse pipe
+</p>
+:::
+
+::::
+
+## Keyboard Shortcut for Pipes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Mac**
+
+Command + Shift + M
+:::
+
+::: {.column width="50%"}
+**Windows**
+
+Control + Shift + M
+:::
+
+::::
+
+::: {.notes}
+First, go to user settings > RStudio keybindings
+:::
+
+## Your Turn {.your-turn}
+
+1. Make sure you have R 4.1 or higher
+
+1. Switch to using native pipe by default
+
+1. Confirm that the keyboard shortcut works to insert a native pipe
+
+::: {.notes}
+- Show why we use pipes
+- Show how to switch to native pipe
+:::
+
+
+# Tidyverse Functions
+
+- `select()` to keep and drop **columns**
+
+- `mutate()` to **create and change variables**
+
+- `filter()` to keep and drop **rows**
+
+- `summarize()` to create **summaries** of our data
+
+- `group_by()` and `summarize()` to create **grouped summaries** TODO: update to .by?
+
+- `arrange()` to **reorder** our data
+
+# `select()` {.inverse}
+
+## `select()`
+
+```{r}
+#| eval: false
+data_frame |>
+  select(variable)
+```
+
+
+## Keyboard Shortcut to Run Code
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Mac**
+
+Command + Enter
+:::
+
+::: {.column width="50%"}
+**Windows**
+
+Control + Enter
+:::
+
+::::
+
+
+# `mutate()` {.inverse}
+
+## `mutate()`
+
+```{r}
+#| eval: false
+data_frame |>
+  mutate(new_variable = variable + 1)
+```
+
+## `mutate()`
+
+```{r}
+#| eval: false
+penguins |>
+  mutate(weight_bill_ratio = body_mass_g / bill_length_mm)
+```
+
+
+# `filter()` {.inverse}
+
+## `filter()`
+
+```{r}
+#| eval: false
+data_frame |>
+  filter(variable > 1)
+```
+
+## Comparison Operators
+
+```{r}
+#| echo: false
+#| output: true
+
+tibble::tribble(
+  ~Operator , ~Description               , ~Usage      ,
+  "<"       , "less than"                , "x < y"     ,
+  "<="      , "less than or equal to"    , "x <= y"    ,
+  ">"       , "greater than"             , "x > y"     ,
+  ">="      , "greater than or equal to" , "x >= y"    ,
+  "=="      , "exactly equal to"         , "x == y"    ,
+  "!="      , "not equal to"             , "x != y"    ,
+  "%in%"    , "group membership"         , "x %in% y"  ,
+  "is.na"   , "is missing"               , "is.na(x)"  ,
+  "!is.na"  , "is not missing"           , "!is.na(x)"
+) |>
+  rru_table()
+```
+
+::: {.notes}
+- Show examples using comparisons
+:::
+
+## Logical Operators
+
+```{r}
+#| echo: false
+#| output: true
+
+tibble::tribble(
+  ~Operator , ~Description , ~Usage  ,
+  "&"       , "and"        , "x & y" ,
+  "|"       , "or"         , "x | y" ,
+  "!"       , "not"        , "!x"
+) |>
+  rru_table()
+```
+
+## Logical Operators
+
+```{r}
+#| eval: false
+data_frame |>
+  filter(variable > 1 & variable_2 < 1)
+```
+
+::: {.notes}
+- Show examples combining things with logical operators
+:::
+
+
+# `summarize()` {.inverse}
+
+::: {.notes}
+Mention American and British spellings
+:::
+
+## `summarize()`
+
+```{r}
+#| eval: false
+data_frame |>
+  summarize(summary_variable = summary_function(variable))
+```
+
+
+## Summary Functions
+
+```{r}
+#| echo: false
+#| output: true
+#|
+tribble(
+  ~Description         , ~Function   ,
+  "number"             , "n()"       ,
+  "sum"                , "sum(x)"    ,
+  "minimum"            , "min(x)"    ,
+  "maximum"            , "max(x)"    ,
+  "mean"               , "mean(x)"   ,
+  "median"             , "median(x)" ,
+  "standard deviation" , "sd(x)"     ,
+  "variance"           , "var(x)"    ,
+  "rank"               , "rank(x)"
+) |>
+  rru_table()
+```
+
+
+# `group_by()` and `summarize()` {.inverse}
+
+## `group_by()` and `summarize()`
+
+```{r}
+#| eval: false
+data_frame |>
+  group_by(grouping_variable) |>
+  summarize(summary_variable = summary_function(variable))
+```
+
+::: {.notes}
+- Also show .by
+:::
+
+# `arrange()` {.inverse}
+
+## `arrange()`
+
+```{r}
+#| eval: false
+data_frame |>
+  arrange(variable)
+```
+
+
+
+# Create a New Data Frame {.inverse}
+
+## This Does Not Create a New Data Frame
+
+```{r}
+#| eval: false
+data_frame |>
+  filter(variable > 1) |>
+  arrange(variable)
+```
+
+## This Creates a New Data Frame
+
+```{r}
+#| eval: false
+data_frame_2 <-
+  data_frame |>
+  filter(variable > 1) |>
+  arrange(variable)
+```
+
+
+::: {.notes}
+- Show long pipeline and display results
+- Show long pipeline and save results
+- We typically save objects to use them in ggplot or tables later on
+:::
+
+# Bring it All Together {.inverse}
+
+::: {.notes}
+- Use [R Community Survey](https://github.com/rstudio/r-community-survey)
+:::
+
+# Data Visualization {.inverse}
+
+
+
+# The Grammar of Graphics {.inverse}
+
+## The Grammar of Graphics
+
+![](assets/nyt-inequality-chart.png)
+
+::: {.notes}
+https://www.nytimes.com/2017/12/17/opinion/taxes-inequality-charts.html
+:::
+
+## The Grammar of Graphics
+
+![](assets/grammar-of-graphics.png)
+
+---
+
+### Data Mapped to Aesthetic Properties ...
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](assets/data-with-col-labels.png)
+:::
+
+::: {.column width="60%"}
+![](assets/nyt-inequality-chart.png)
+:::
+
+::::
+
+
+
+---
+
+### ... of Geometric Objects
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](assets/nyt-inequality-chart.png)
+:::
+
+::: {.column width="40%"}
+<br>
+![](assets/geometric-objects.png)
+:::
+
+::::
+
+# `ggplot2` {.inverse}
+
+---
+
+::: {.center-slide}
+[![](assets/ggplot-qz.png){width=650}](https://qz.com/1007328/all-hail-ggplot2-the-code-powering-all-those-excellent-charts-is-10-years-old)
+:::
+
+---
+
+```{r}
+#| eval: false
+
+ggplot(
+  data = inequality_data,
+  mapping = aes(x = year, y = income_change, color = income_group)
+) +
+  geom_line()
+```
+
+![](assets/nyt-inequality-chart.png){height=400px}
+
+# Quarto {.inverse}
+
+---
+
+![](assets/non-r-workflow.svg){fig-align="center"}
+
+---
+
+![](assets/non-r-workflow-back-to-square-one.svg){fig-align="center"}
+
+# Quarto is the Solution You Didn't Know You Needed {.inverse}
+
+---
+
+![](assets/word-source-output.png){fig-align="center"}
+
+---
+
+![](assets/rstudio-source-output.png){fig-align="center"}
+
+::: {.notes}
+https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html#/change-your-mental-model
+:::
+
+
+## Quarto Overview
+
+![](assets/quarto-overview.png){width=100%}
+
+::: {.notes}
+- Mention R Markdown
+- If you use Rmd look at my book chapter
+- You'll see a lot about other languages; we'll just focus on R
+:::
+
+## Your Turn {.your-turn}
+
+1. Create a new Quarto file, setting the title as "Penguin Report", the author as your name, and the output format as Word.
+
+1. Save your Quarto file as report.qmd.
+
+1. Look through this Quarto file and make sure that you can identify the YAML, text sections, and code chunks.
+
+1. Click the Render button and open the file that gets produced (`report.docx`).
+
+## YAML {.inverse}
+
+## YAML
+
+- Stands for "YAML Ain't Markup Language" (don't worry about it).
+
+- Often referred to as the "front matter."
+
+- It is metadata that tells Quarto things like title, author, output format, etc.
+
+---
+
+![](assets/quarto-overview-yaml.png){width=100%}
+
+## Title
+
+```{yaml}
+#| code-line-numbers: "2"
+---
+title: "My Report"
+author: "David Keyes"
+format: docx
+---
+```
+
+## Author
+
+```{yaml}
+#| code-line-numbers: "3"
+---
+title: "My Report"
+author: "David Keyes"
+format: docx
+---
+```
+
+## Format
+
+```{yaml}
+#| code-line-numbers: "4"
+---
+title: "My Report"
+author: "David Keyes"
+format: docx
+---
+```
+
+## Format
+
+```{yaml}
+#| code-line-numbers: "4"
+---
+title: "My Report"
+author: "David Keyes"
+format: pdf
+---
+```
+
+## Format
+
+```{yaml}
+#| code-line-numbers: "4"
+---
+title: "My Report"
+author: "David Keyes"
+format: html
+---
+```
+
+## Your Turn {.your-turn}
+
+1. Go into the YAML and change the title to "My Penguins Report."
+
+1. Change the output format to HTML by changing `format: docx` to `format: html`.
+
+1. Render again and open `report.html` to make sure your changes show up.
+
+
+## Text {.inverse}
+
+---
+
+![](assets/quarto-overview-text.png){width=100%}
+
+---
+
+![](assets/word-formatting.png){width=594, fig-align="center"}
+
+::: {.notes}
+Mention visual editor
+:::
+
+---
+
+![](assets/render-quarto.png)
+
+## Markdown {.inverse}
+
+## Bold and Italics
+
+**Markdown**
+
+::: {.fragment}
+```{markdown}
+Text with **some words in bold** and *some words in italics*
+```
+:::
+
+<br>
+**Output**
+
+::: {.fragment}
+Text with **some words in bold** and *some words in italics*
+:::
+
+::: {.notes}
+https://quarto.org/docs/authoring/markdown-basics.html
+:::
+
+## Headings {.center-slide}
+
++----------------------+-------------------+
+| Markdown             | Output            |
++======================+===================+
+|     # Heading 1      | # Heading 1       |
++----------------------+-------------------+
+|     ## Heading 2     | ## Heading 2      |
++----------------------+-------------------+
+|     ### Heading 3    | ### Heading 3     |
++----------------------+-------------------+
+|     #### Heading 4   | #### Heading 4    |
++----------------------+-------------------+
+|     ##### Heading 5  | ##### Heading 5   |
++----------------------+-------------------+
+|     ###### Heading 6 | ###### Heading 6  |
++----------------------+-------------------+
+
+
+## Lists
+
+**Markdown**
+
+::: {.fragment}
+```{markdown}
+- Bulleted list item #1
+- Bulleted list item #2
+```
+:::
+
+<br>
+**Output**
+
+::: {.fragment .nonincremental}
+- Bulleted list item #1
+- Bulleted list item #2
+:::
+
+
+## Ordered Lists
+
+**Markdown**
+
+::: {.fragment}
+```{markdown}
+1. Ordered list item #1
+1. Ordered list item #2
+```
+:::
+
+<br>
+**Output**
+
+::: {.fragment .nonincremental}
+1. Ordered list item #1
+1. Ordered list item #2
+:::
+
+
+## Spacing Matters (A Lot!)
+
+- **Don't** add spaces before the start of lines
+
+- **Do** add space between lines
+
+## Your Turn {.your-turn}
+
+1. Working in your `report.qmd` file, delete the default content (everything below the YAML).
+
+1. Add a first-level Heading that says "Introduction"
+
+## Your Turn (Continued) {.your-turn}
+
+::: {.fragment .nonincremental}
+3. Add this text below the Introduction first-level heading: 
+
+::: {.small}
+> This report is about **three** species of penguins: 
+>
+> 1. Adelie
+> 1. Gentoo
+> 1. Chinstrap
+> 
+> You'll learn *so* much about the penguins. I hope you're ready!
+:::
+
+Note the bold and italics!
+:::
+
+## Your Turn (Continued) {.your-turn}
+
+4. Render your report again and make sure you see the changes.
+
+
+
+## Code Chunks {.inverse}
+
+::: {.notes}
+We don't just want to have text; we always want code
+:::
+
+## Code Chunks
+
+- Used to make numbers, graphs, tables, maps, etc (anything that you would use R to generate)
+
+---
+
+![](assets/quarto-overview-code-chunks.png){width=100%}
+
+## Inserting Code Chunks
+
+![](assets/insert-code-chunk.png)
+
+## Keyboard Shortcut
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Mac**
+
+Command + Option + I
+:::
+
+::: {.column width="50%"}
+**Windows**
+
+Control + Alt + I
+:::
+
+::::
+
+## Running Code Chunks
+
+1. Run code like you would code in an R script file
+
+1. Use buttons in RStudio
+
+---
+
+![](assets/run-code-chunks.png)
+
+
+## Code Chunk Options
+
+- `output`: Do you want to display the output of the code chunk (e.g. the graph)?
+
+- `echo`: Do you want to display the code in the code chunk?
+
+- `message`: Do you want to display any messages R gives you?
+
+- `warning`: Do you want to display any warnings R gives you?
+
+
+
+::: {.notes}
+message: tidyverse loading
+
+warning: removing rows when making plots
+
+[See all code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html)
+:::
+
+## Code Chunk Options
+
+````
+```{{r}}
+#| message: false
+
+library(tidyverse)
+```
+````
+
+## Code Chunk Options
+
+````
+```{{r}}
+#| warning: false
+
+ggplot(data = penguins,
+       mapping = aes(x = bill_length_mm,
+                     y = bill_depth_mm)) +
+  geom_point()
+```
+````
+
+
+## Global Chunk Options
+
+```{yaml}
+---
+title: "My Report"
+author: "David Keyes"
+format: docx
+execute: 
+  output: true
+  echo: false
+  warning: false
+  message: false
+---
+```
+
+::: {.notes}
+This is what I recommend most of the time
+:::
+
+## Your Turn {.your-turn}
+
+## Tips for Working with Quarto
+
+1. Use the source editor (not the visual editor)
+
+1. Run individual code chunks to make sure they work, but then render to make sure the whole document can render
+
+1. The Quarto document needs to be able to run on its own (packages, data, etc)
+
+## Your Turn {.your-turn}
+
+1. Working in your `report.qmd` file, right below the YAML, add a code chunk that loads the `tidyverse` and imports your penguins data to an object called `penguins`
+
+1. Right below the Results Heading you added previously, create a second code chunk and add some code that you used to make a graph in the data viz section of the course.
+
+1. Render your document and make sure it works!
+
+
+# An Important Workflow Tip {.inverse}
+
+## An Important Workflow Tip
+
+![](assets/important-workflow-tip.png)
