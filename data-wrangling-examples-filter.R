@@ -1,5 +1,3 @@
-# https://github.com/tidyverse/dplyr/blob/main/NEWS.md
-
 # Load Packages -----------------------------------------------------------
 
 library(tidyverse)
