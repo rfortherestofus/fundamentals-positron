@@ -276,7 +276,7 @@ Control + Enter
 
 ```{r}
 #| eval: false
-speed_data |>
+distance_data |>
   mutate(kilometers = meters / 1000)
 ```
 
