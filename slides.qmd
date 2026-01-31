@@ -120,9 +120,9 @@ mean(penguins$body_mass_g[penguins$year == 2007], na.rm = TRUE)
 
 - Starts with function, data frame in parentheses
 
-- Uses dollar sign (`data$satisfaction_rating`) notation
+- Uses dollar sign (`data$variable`) notation
 
-- Uses bracket (`[data$year==2019]`) notation
+- Uses brackets (`[data$variable == XXXX]`)
 
 - Repeats data frame name each time you call it
 
@@ -134,8 +134,7 @@ mean(penguins$body_mass_g[penguins$year == 2007], na.rm = TRUE)
 
 penguins |>
   filter(year == 2007) |>
-  drop_na(body_mass_g) |>
-  summarize(mean_body_mass = mean(body_mass_g))
+  summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 
 - Nicely named functions because "the bottleneck in most data analysis is thinking time" - [The tidy tools manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html)
@@ -218,15 +217,12 @@ First, go to user settings > RStudio keybindings
 
 ## Your Turn {.your-turn}
 
-1. Make sure you have R 4.1 or higher
-
-1. Switch to using native pipe by default
+1. Enable RStudio keybindings in Positron settings
 
 1. Confirm that the keyboard shortcut works to insert a native pipe
 
 ::: {.notes}
 - Show why we use pipes
-- Show how to switch to native pipe
 :::
 
 
@@ -240,7 +236,7 @@ First, go to user settings > RStudio keybindings
 
 - `summarize()` to create **summaries** of our data
 
-- `group_by()` and `summarize()` to create **grouped summaries** TODO: update to .by?
+- `group_by()` and `summarize()` to create **grouped summaries**
 
 - `arrange()` to **reorder** our data
 
