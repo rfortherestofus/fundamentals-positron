@@ -389,9 +389,9 @@ tribble(
 ```
 
 
-# `group_by()` and `summarize()` {.inverse}
+# Grouped Summaries {.inverse}
 
-## `group_by()` and `summarize()`
+## Grouped Summaries
 
 ```{r}
 #| eval: false
