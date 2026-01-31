@@ -14,22 +14,22 @@ penguins <-
 # We use == to select all observations that meet the criteria.
 
 penguins |>
-  filter(species == "Adelie")
+  filter(species == "Adelie") 
 
 # We use != to select all observations that don't meet the criteria.
 
 penguins |>
-  filter(species != "Adelie")
+  filter(species != "Adelie") 
 
 # We use filter_out() to do the same thing
 
 penguins |>
-  filter_out(species == "Adelie")
+  filter_out(species == "Adelie") 
 
 # We can combine comparisons and logical operators.
 
 penguins |>
-  filter(species == "Adelie" | species == "Chinstrap")
+  filter(species == "Adelie" | species == "Chinstrap") 
 
 # We can use %in% to collapse multiple comparisons into one.
 
@@ -49,7 +49,7 @@ penguins |>
 penguins |>
   filter(
     species %in% c("Adelie", "Chinstrap") & island == "Torgersen"
-  )
+  ) 
 
 # Simpler version
 
