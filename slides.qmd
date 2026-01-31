@@ -277,7 +277,7 @@ Control + Enter
 ```{r}
 #| eval: false
 data_frame |>
-  mutate(new_variable = variable + 1)
+  mutate(kilometers = meters / 1000)
 ```
 
 ## `mutate()`
