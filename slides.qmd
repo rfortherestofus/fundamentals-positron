@@ -431,8 +431,7 @@ data_frame |>
 
 ```{r}
 #| eval: false
-data_frame_2 <-
-  data_frame |>
+data_frame_2 <- data_frame |>
   filter(variable > 1) |>
   arrange(variable)
 ```
