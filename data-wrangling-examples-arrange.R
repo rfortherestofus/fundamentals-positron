@@ -16,6 +16,10 @@ penguins <-
 penguins |>
   arrange(bill_length_mm)
 
+penguins |> 
+  arrange(species, island) |> 
+  view()
+
 # We can also arrange in descending order using desc().
 
 penguins |>
