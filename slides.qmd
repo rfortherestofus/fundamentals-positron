@@ -276,7 +276,7 @@ Control + Enter
 
 ```{r}
 #| eval: false
-data_frame |>
+speed_data |>
   mutate(kilometers = meters / 1000)
 ```
 
