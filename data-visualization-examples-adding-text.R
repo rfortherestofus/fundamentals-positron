@@ -38,7 +38,12 @@ library(scales)
 
 penguin_bill_length_by_island_v2 <-
   penguin_bill_length_by_island |>
-  mutate(mean_bill_length_one_digit = number(mean_bill_length, accuracy = 0.1))
+  mutate(
+    mean_bill_length_one_digit = number(
+      mean_bill_length,
+      accuracy = 0.1
+    )
+  )
 
 # Now let's plot using our new data frame
 
@@ -58,6 +63,8 @@ ggplot(
 # and mean_bill_length for y.
 # If you use mean_bill_length_one_digit for both, your graph will
 # look different.
+
+penguin_bill_length_by_island_v2
 
 ggplot(
   data = penguin_bill_length_by_island_v2,
@@ -130,7 +137,10 @@ ggplot(
   )
 ) +
   geom_col() +
-  geom_text(vjust = 1.5, color = "white")
+  geom_text(
+    vjust = 1.5,
+    color = "white"
+  )
 
 # geom_label() is nearly identical but it adds a background.
 # With geom_label() the color argument determines the text and border color
@@ -146,4 +156,8 @@ ggplot(
   )
 ) +
   geom_col() +
-  geom_label(vjust = 1.5, color = "white", fill = "black")
+  geom_label(
+    vjust = 1.5,
+    color = "white",
+    fill = "black"
+  )
