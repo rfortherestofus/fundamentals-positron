@@ -67,7 +67,7 @@ ggplot(
 ) +
   geom_bar(stat = "identity")
 
-# We can also flip the x and y axes.
+# We can easily also flip the x and y axes.
 
 ggplot(
   data = penguin_bill_length_by_island,
@@ -77,18 +77,6 @@ ggplot(
   )
 ) +
   geom_bar(stat = "identity")
-
-# The function coord_flip() will do the same thing.
-
-ggplot(
-  data = penguin_bill_length_by_island,
-  mapping = aes(
-    x = island,
-    y = mean_bill_length
-  )
-) +
-  geom_bar(stat = "identity") +
-  coord_flip()
 
 # We can also use geom_col(), which is the same as geom_bar(stat = "identity")
 
