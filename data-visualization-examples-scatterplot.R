@@ -1,0 +1,20 @@
+# Load Packages -----------------------------------------------------------
+
+library(tidyverse)
+
+# Import Data -------------------------------------------------------------
+
+penguins <- read_csv("penguins.csv")
+
+# Scatterplots ------------------------------------------------------------
+
+# We use geom_point() to make a scatterplot.
+
+ggplot(
+  data = penguins,
+  mapping = aes(
+    x = bill_length_mm,
+    y = bill_depth_mm
+  )
+) +
+  geom_point()
