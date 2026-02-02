@@ -6,6 +6,12 @@ library(tidyverse)
 
 penguins <- read_csv("penguins.csv")
 
+penguin_bill_length_by_island <-
+  penguins |>
+  group_by(island) |>
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE)) |>
+  arrange(mean_bill_length)
+
 # Setting color and fill Scales -------------------------------------------
 
 # We can change the color or fill scale using a scale function.
@@ -57,21 +63,7 @@ ggplot(
   )
 ) +
   geom_point() +
-  scale_color_viridis_d(option = "A")
-
-ggplot(
-  data = penguins,
-  mapping = aes(
-    x = bill_length_mm,
-    y = bill_depth_mm,
-    color = island
-  )
-) +
-  geom_point() +
   scale_color_viridis_d(option = "H")
-
-# There are many other built-in palettes. Just type scale_color_ and RStudio
-# will autocomplete some other options for you.
 
 # We can use scale_fill_viridis_d() for the fill aesthetic property.
 
@@ -85,3 +77,25 @@ ggplot(
 ) +
   geom_col() +
   scale_fill_viridis_d()
+
+ggplot(
+  data = penguin_bill_length_by_island,
+  mapping = aes(
+    x = island,
+    y = mean_bill_length,
+    fill = mean_bill_length
+  )
+) +
+  geom_col() +
+  scale_fill_viridis_c()
+
+ggplot(
+  data = penguins,
+  mapping = aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    color = bill_depth_mm
+  )
+) +
+  geom_point() +
+  scale_color_viridis_c()
