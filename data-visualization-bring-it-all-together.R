@@ -2,6 +2,7 @@
 
 library(tidyverse)
 library(janitor)
+library(scales)
 
 # Import Data -------------------------------------------------------------
 
@@ -19,5 +20,27 @@ avg_r_enjoyment <-
     avg_enjoyment = mean(qr_enjoyment),
     number_of_responses = n()
   ) |>
-  filter(number_of_responses >= 10) |>
-  arrange(desc(avg_enjoyment))
+  filter(number_of_responses >= 50) |>
+  arrange(desc(avg_enjoyment)) |>
+  drop_na(qcountry) |>
+  mutate(avg_enjoyment_formatted = number(avg_enjoyment, accuracy = 0.01))
+
+# Data Viz ---------------------------------------------------------------
+
+ggplot(
+  data = avg_r_enjoyment,
+  mapping = aes(
+    x = avg_enjoyment,
+    y = qcountry,
+    label = avg_enjoyment_formatted
+  )
+) +
+  geom_col(fill = "#6cabdd") +
+  geom_text(hjust = 1.2, color = "white") +
+  theme_minimal() +
+  labs(
+    title = "Average Enjoyment of R on a 5-Point Scale Among Users Around the World",
+    subtitle = "Only countries with 50 or more responses included",
+    x = NULL,
+    y = NULL
+  )
