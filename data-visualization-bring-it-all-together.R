@@ -7,11 +7,9 @@ library(janitor)
 
 # Data from https://github.com/rstudio/r-community-survey
 
-survey_data <- read_tsv("2020-combined-survey-final.tsv") |>
+survey_data <-
+  read_tsv("2020-combined-survey-final.tsv") |>
   clean_names()
-
-survey_data |>
-  select(contains("enjoy"))
 
 avg_r_enjoyment <-
   survey_data |>
