@@ -59,7 +59,7 @@ library(ggthemes)
 # to make our plots look like those in the Economist.
 
 ggplot(
-  data = penguin_bill_length_by_island_and_sex,
+  data = penguin_bill_length_by_island_and_sex,f
   mapping = aes(x = island, y = mean_bill_length, fill = sex)
 ) +
   geom_col(position = "dodge") +
