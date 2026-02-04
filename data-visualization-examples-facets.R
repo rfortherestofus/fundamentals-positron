@@ -1,6 +1,7 @@
 # Load Packages -----------------------------------------------------------
 
 library(tidyverse)
+library(ggthemes)
 
 # Import Data -------------------------------------------------------------
 
@@ -96,7 +97,7 @@ ggplot(
 ) +
   geom_point() +
   theme_economist() +
-  facet_grid(cols = vars(sex))
+  facet_grid(cols = vars(island))
 
 # You can even use multiple variables with facet_grid().
 
@@ -109,4 +110,7 @@ ggplot(
 ) +
   geom_point() +
   theme_economist() +
-  facet_grid(rows = vars(year), cols = vars(sex))
+  facet_grid(
+    rows = vars(year),
+    cols = vars(island)
+  )
