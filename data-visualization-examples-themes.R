@@ -19,7 +19,11 @@ penguin_bill_length_by_island_and_sex <-
 
 ggplot(
   data = penguin_bill_length_by_island_and_sex,
-  mapping = aes(x = island, y = mean_bill_length, fill = sex)
+  mapping = aes(
+    x = island,
+    y = mean_bill_length,
+    fill = sex
+  )
 ) +
   geom_col(position = "dodge") +
   labs(
@@ -36,7 +40,11 @@ ggplot(
 
 ggplot(
   data = penguin_bill_length_by_island_and_sex,
-  mapping = aes(x = island, y = mean_bill_length, fill = sex)
+  mapping = aes(
+    x = island,
+    y = mean_bill_length,
+    fill = sex
+  )
 ) +
   geom_col(position = "dodge") +
   labs(
@@ -60,7 +68,11 @@ library(ggthemes)
 
 ggplot(
   data = penguin_bill_length_by_island_and_sex,
-  mapping = aes(x = island, y = mean_bill_length, fill = sex)
+  mapping = aes(
+    x = island,
+    y = mean_bill_length,
+    fill = sex
+  )
 ) +
   geom_col(position = "dodge") +
   labs(
