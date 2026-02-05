@@ -6,8 +6,8 @@
 <script src="slides_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <title>Fundamentals of R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto-7d3f80583c403a6f8f8070928158da14.css">
+  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto-2f55ac0f9d24c3b897838dc8a9b7fd2a.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -265,7 +265,7 @@
 <section id="base-r-code" class="slide level2 center">
 <h2>Base R Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2007</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2007</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment"><p>Starts with function, data frame in parentheses</p></li>
@@ -277,9 +277,9 @@
 <section id="tidyverse-code" class="slide level2 center">
 <h2>Tidyverse Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment"><p>Nicely named functions because “the bottleneck in most data analysis is thinking time” - <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">The tidy tools manifesto</a></p></li>
@@ -295,18 +295,18 @@
 <section id="code-without-pipes" class="slide level2 center">
 <h2>Code Without Pipes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(</span>
 <span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(penguins, <span class="at">body_mass_lbs =</span> body_mass_g <span class="sc">/</span> <span class="fl">453.6</span>),</span>
 <span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a>  body_mass_lbs</span>
-<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-with-pipes" class="slide level2 center">
 <h2>Code With Pipes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_mass_lbs =</span> body_mass_g <span class="sc">/</span> <span class="fl">453.6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(body_mass_lbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(body_mass_lbs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pipes-then" class="slide level2 center">
@@ -398,8 +398,8 @@ Tidyverse pipe
 <section id="select-1" class="slide level2 center">
 <h2><code>select()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="keyboard-shortcut-to-run-code" class="slide level2 center">
@@ -421,15 +421,15 @@ Tidyverse pipe
 <section id="mutate-1" class="slide level2 center">
 <h2><code>mutate()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>distance_data <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kilometers =</span> meters <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>distance_data <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kilometers =</span> meters <span class="sc">/</span> <span class="dv">1000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="mutate-2" class="slide level2 center">
 <h2><code>mutate()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_bill_ratio =</span> body_mass_g <span class="sc">/</span> bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_bill_ratio =</span> body_mass_g <span class="sc">/</span> bill_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -440,36 +440,36 @@ Tidyverse pipe
 <section id="filter-1" class="slide level2 center">
 <h2><code>filter()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="comparison-operators" class="slide level2 center">
 <h2>Comparison Operators</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="sjlrlffgqb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tmrkvjcdlh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#sjlrlffgqb table {
+#tmrkvjcdlh table {
   font-family: Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', Cairo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sjlrlffgqb thead, #sjlrlffgqb tbody, #sjlrlffgqb tfoot, #sjlrlffgqb tr, #sjlrlffgqb td, #sjlrlffgqb th {
+#tmrkvjcdlh thead, #tmrkvjcdlh tbody, #tmrkvjcdlh tfoot, #tmrkvjcdlh tr, #tmrkvjcdlh td, #tmrkvjcdlh th {
   border-style: none;
 }
 
-#sjlrlffgqb p {
+#tmrkvjcdlh p {
   margin: 0;
   padding: 0;
 }
 
-#sjlrlffgqb .gt_table {
+#tmrkvjcdlh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -495,12 +495,12 @@ Tidyverse pipe
   border-left-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_caption {
+#tmrkvjcdlh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sjlrlffgqb .gt_title {
+#tmrkvjcdlh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -512,7 +512,7 @@ Tidyverse pipe
   border-bottom-width: 0;
 }
 
-#sjlrlffgqb .gt_subtitle {
+#tmrkvjcdlh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -524,7 +524,7 @@ Tidyverse pipe
   border-top-width: 0;
 }
 
-#sjlrlffgqb .gt_heading {
+#tmrkvjcdlh .gt_heading {
   background-color: rgba(255, 255, 255, 0);
   text-align: left;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -536,13 +536,13 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_bottom_border {
+#tmrkvjcdlh .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_col_headings {
+#tmrkvjcdlh .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -557,7 +557,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_col_heading {
+#tmrkvjcdlh .gt_col_heading {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -577,7 +577,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#sjlrlffgqb .gt_column_spanner_outer {
+#tmrkvjcdlh .gt_column_spanner_outer {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -589,15 +589,15 @@ Tidyverse pipe
   padding-right: 4px;
 }
 
-#sjlrlffgqb .gt_column_spanner_outer:first-child {
+#tmrkvjcdlh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sjlrlffgqb .gt_column_spanner_outer:last-child {
+#tmrkvjcdlh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sjlrlffgqb .gt_column_spanner {
+#tmrkvjcdlh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #404E6B;
@@ -609,11 +609,11 @@ Tidyverse pipe
   width: 100%;
 }
 
-#sjlrlffgqb .gt_spanner_row {
+#tmrkvjcdlh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sjlrlffgqb .gt_group_heading {
+#tmrkvjcdlh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +639,7 @@ Tidyverse pipe
   text-align: left;
 }
 
-#sjlrlffgqb .gt_empty_group_heading {
+#tmrkvjcdlh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
@@ -654,15 +654,15 @@ Tidyverse pipe
   vertical-align: middle;
 }
 
-#sjlrlffgqb .gt_from_md > :first-child {
+#tmrkvjcdlh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sjlrlffgqb .gt_from_md > :last-child {
+#tmrkvjcdlh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sjlrlffgqb .gt_row {
+#tmrkvjcdlh .gt_row {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -681,7 +681,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#sjlrlffgqb .gt_stub {
+#tmrkvjcdlh .gt_stub {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -694,7 +694,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#sjlrlffgqb .gt_stub_row_group {
+#tmrkvjcdlh .gt_stub_row_group {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -708,15 +708,15 @@ Tidyverse pipe
   vertical-align: top;
 }
 
-#sjlrlffgqb .gt_row_group_first td {
+#tmrkvjcdlh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sjlrlffgqb .gt_row_group_first th {
+#tmrkvjcdlh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sjlrlffgqb .gt_summary_row {
+#tmrkvjcdlh .gt_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -726,16 +726,16 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#sjlrlffgqb .gt_first_summary_row {
+#tmrkvjcdlh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_first_summary_row.thick {
+#tmrkvjcdlh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sjlrlffgqb .gt_last_summary_row {
+#tmrkvjcdlh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -745,7 +745,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_grand_summary_row {
+#tmrkvjcdlh .gt_grand_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -755,7 +755,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#sjlrlffgqb .gt_first_grand_summary_row {
+#tmrkvjcdlh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -765,7 +765,7 @@ Tidyverse pipe
   border-top-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_last_grand_summary_row_top {
+#tmrkvjcdlh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -775,11 +775,11 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_striped {
+#tmrkvjcdlh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sjlrlffgqb .gt_table_body {
+#tmrkvjcdlh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -788,7 +788,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_footnotes {
+#tmrkvjcdlh .gt_footnotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -802,7 +802,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_footnote {
+#tmrkvjcdlh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -811,7 +811,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#sjlrlffgqb .gt_sourcenotes {
+#tmrkvjcdlh .gt_sourcenotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -825,7 +825,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#sjlrlffgqb .gt_sourcenote {
+#tmrkvjcdlh .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -833,81 +833,81 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#sjlrlffgqb .gt_left {
+#tmrkvjcdlh .gt_left {
   text-align: left;
 }
 
-#sjlrlffgqb .gt_center {
+#tmrkvjcdlh .gt_center {
   text-align: center;
 }
 
-#sjlrlffgqb .gt_right {
+#tmrkvjcdlh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sjlrlffgqb .gt_font_normal {
+#tmrkvjcdlh .gt_font_normal {
   font-weight: normal;
 }
 
-#sjlrlffgqb .gt_font_bold {
+#tmrkvjcdlh .gt_font_bold {
   font-weight: bold;
 }
 
-#sjlrlffgqb .gt_font_italic {
+#tmrkvjcdlh .gt_font_italic {
   font-style: italic;
 }
 
-#sjlrlffgqb .gt_super {
+#tmrkvjcdlh .gt_super {
   font-size: 65%;
 }
 
-#sjlrlffgqb .gt_footnote_marks {
+#tmrkvjcdlh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sjlrlffgqb .gt_asterisk {
+#tmrkvjcdlh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sjlrlffgqb .gt_indent_1 {
+#tmrkvjcdlh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sjlrlffgqb .gt_indent_2 {
+#tmrkvjcdlh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sjlrlffgqb .gt_indent_3 {
+#tmrkvjcdlh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sjlrlffgqb .gt_indent_4 {
+#tmrkvjcdlh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sjlrlffgqb .gt_indent_5 {
+#tmrkvjcdlh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#sjlrlffgqb .katex-display {
+#tmrkvjcdlh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#sjlrlffgqb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tmrkvjcdlh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
-#sjlrlffgqb tbody tr:last-child {
+#tmrkvjcdlh tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #404E6B; font-size: 14px; font-weight: 200; font-family: Chivo; vertical-align: bottom; text-transform: uppercase; border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Operator</th>
@@ -987,28 +987,28 @@ Tidyverse pipe
 <h2>Logical Operators</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="hnwciatssi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qrsblwukhg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#hnwciatssi table {
+#qrsblwukhg table {
   font-family: Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', Cairo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hnwciatssi thead, #hnwciatssi tbody, #hnwciatssi tfoot, #hnwciatssi tr, #hnwciatssi td, #hnwciatssi th {
+#qrsblwukhg thead, #qrsblwukhg tbody, #qrsblwukhg tfoot, #qrsblwukhg tr, #qrsblwukhg td, #qrsblwukhg th {
   border-style: none;
 }
 
-#hnwciatssi p {
+#qrsblwukhg p {
   margin: 0;
   padding: 0;
 }
 
-#hnwciatssi .gt_table {
+#qrsblwukhg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1034,12 +1034,12 @@ Tidyverse pipe
   border-left-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_caption {
+#qrsblwukhg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hnwciatssi .gt_title {
+#qrsblwukhg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1051,7 +1051,7 @@ Tidyverse pipe
   border-bottom-width: 0;
 }
 
-#hnwciatssi .gt_subtitle {
+#qrsblwukhg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1063,7 +1063,7 @@ Tidyverse pipe
   border-top-width: 0;
 }
 
-#hnwciatssi .gt_heading {
+#qrsblwukhg .gt_heading {
   background-color: rgba(255, 255, 255, 0);
   text-align: left;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -1075,13 +1075,13 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_bottom_border {
+#qrsblwukhg .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_col_headings {
+#qrsblwukhg .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1096,7 +1096,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_col_heading {
+#qrsblwukhg .gt_col_heading {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1116,7 +1116,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#hnwciatssi .gt_column_spanner_outer {
+#qrsblwukhg .gt_column_spanner_outer {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1128,15 +1128,15 @@ Tidyverse pipe
   padding-right: 4px;
 }
 
-#hnwciatssi .gt_column_spanner_outer:first-child {
+#qrsblwukhg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hnwciatssi .gt_column_spanner_outer:last-child {
+#qrsblwukhg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hnwciatssi .gt_column_spanner {
+#qrsblwukhg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #404E6B;
@@ -1148,11 +1148,11 @@ Tidyverse pipe
   width: 100%;
 }
 
-#hnwciatssi .gt_spanner_row {
+#qrsblwukhg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hnwciatssi .gt_group_heading {
+#qrsblwukhg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1178,7 +1178,7 @@ Tidyverse pipe
   text-align: left;
 }
 
-#hnwciatssi .gt_empty_group_heading {
+#qrsblwukhg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
@@ -1193,15 +1193,15 @@ Tidyverse pipe
   vertical-align: middle;
 }
 
-#hnwciatssi .gt_from_md > :first-child {
+#qrsblwukhg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hnwciatssi .gt_from_md > :last-child {
+#qrsblwukhg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hnwciatssi .gt_row {
+#qrsblwukhg .gt_row {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -1220,7 +1220,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#hnwciatssi .gt_stub {
+#qrsblwukhg .gt_stub {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1233,7 +1233,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#hnwciatssi .gt_stub_row_group {
+#qrsblwukhg .gt_stub_row_group {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1247,15 +1247,15 @@ Tidyverse pipe
   vertical-align: top;
 }
 
-#hnwciatssi .gt_row_group_first td {
+#qrsblwukhg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hnwciatssi .gt_row_group_first th {
+#qrsblwukhg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hnwciatssi .gt_summary_row {
+#qrsblwukhg .gt_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1265,16 +1265,16 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#hnwciatssi .gt_first_summary_row {
+#qrsblwukhg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_first_summary_row.thick {
+#qrsblwukhg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hnwciatssi .gt_last_summary_row {
+#qrsblwukhg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1284,7 +1284,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_grand_summary_row {
+#qrsblwukhg .gt_grand_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1294,7 +1294,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#hnwciatssi .gt_first_grand_summary_row {
+#qrsblwukhg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1304,7 +1304,7 @@ Tidyverse pipe
   border-top-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_last_grand_summary_row_top {
+#qrsblwukhg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1314,11 +1314,11 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_striped {
+#qrsblwukhg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hnwciatssi .gt_table_body {
+#qrsblwukhg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1327,7 +1327,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_footnotes {
+#qrsblwukhg .gt_footnotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1341,7 +1341,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_footnote {
+#qrsblwukhg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1350,7 +1350,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#hnwciatssi .gt_sourcenotes {
+#qrsblwukhg .gt_sourcenotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1364,7 +1364,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#hnwciatssi .gt_sourcenote {
+#qrsblwukhg .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1372,81 +1372,81 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#hnwciatssi .gt_left {
+#qrsblwukhg .gt_left {
   text-align: left;
 }
 
-#hnwciatssi .gt_center {
+#qrsblwukhg .gt_center {
   text-align: center;
 }
 
-#hnwciatssi .gt_right {
+#qrsblwukhg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hnwciatssi .gt_font_normal {
+#qrsblwukhg .gt_font_normal {
   font-weight: normal;
 }
 
-#hnwciatssi .gt_font_bold {
+#qrsblwukhg .gt_font_bold {
   font-weight: bold;
 }
 
-#hnwciatssi .gt_font_italic {
+#qrsblwukhg .gt_font_italic {
   font-style: italic;
 }
 
-#hnwciatssi .gt_super {
+#qrsblwukhg .gt_super {
   font-size: 65%;
 }
 
-#hnwciatssi .gt_footnote_marks {
+#qrsblwukhg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hnwciatssi .gt_asterisk {
+#qrsblwukhg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hnwciatssi .gt_indent_1 {
+#qrsblwukhg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hnwciatssi .gt_indent_2 {
+#qrsblwukhg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hnwciatssi .gt_indent_3 {
+#qrsblwukhg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hnwciatssi .gt_indent_4 {
+#qrsblwukhg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hnwciatssi .gt_indent_5 {
+#qrsblwukhg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hnwciatssi .katex-display {
+#qrsblwukhg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hnwciatssi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qrsblwukhg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
-#hnwciatssi tbody tr:last-child {
+#qrsblwukhg tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Operator" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #404E6B; font-size: 14px; font-weight: 200; font-family: Chivo; vertical-align: bottom; text-transform: uppercase; border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Operator</th>
@@ -1480,8 +1480,8 @@ Tidyverse pipe
 <section id="logical-operators-1" class="slide level2 center">
 <h2>Logical Operators</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> variable_2 <span class="sc">&lt;</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> variable_2 <span class="sc">&lt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <ul>
@@ -1519,36 +1519,36 @@ Tidyverse pipe
 <section id="summarize-1" class="slide level2 center">
 <h2><code>summarize()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">summary_variable =</span> <span class="fu">summary_function</span>(variable))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">summary_variable =</span> <span class="fu">summary_function</span>(variable))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="summary-functions" class="slide level2 center">
 <h2>Summary Functions</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="lhdchozsnf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cfiemektgm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#lhdchozsnf table {
+#cfiemektgm table {
   font-family: Inter, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', Cairo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lhdchozsnf thead, #lhdchozsnf tbody, #lhdchozsnf tfoot, #lhdchozsnf tr, #lhdchozsnf td, #lhdchozsnf th {
+#cfiemektgm thead, #cfiemektgm tbody, #cfiemektgm tfoot, #cfiemektgm tr, #cfiemektgm td, #cfiemektgm th {
   border-style: none;
 }
 
-#lhdchozsnf p {
+#cfiemektgm p {
   margin: 0;
   padding: 0;
 }
 
-#lhdchozsnf .gt_table {
+#cfiemektgm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1574,12 +1574,12 @@ Tidyverse pipe
   border-left-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_caption {
+#cfiemektgm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lhdchozsnf .gt_title {
+#cfiemektgm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1591,7 +1591,7 @@ Tidyverse pipe
   border-bottom-width: 0;
 }
 
-#lhdchozsnf .gt_subtitle {
+#cfiemektgm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1603,7 +1603,7 @@ Tidyverse pipe
   border-top-width: 0;
 }
 
-#lhdchozsnf .gt_heading {
+#cfiemektgm .gt_heading {
   background-color: rgba(255, 255, 255, 0);
   text-align: left;
   border-bottom-color: rgba(255, 255, 255, 0);
@@ -1615,13 +1615,13 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_bottom_border {
+#cfiemektgm .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_col_headings {
+#cfiemektgm .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1636,7 +1636,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_col_heading {
+#cfiemektgm .gt_col_heading {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1656,7 +1656,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#lhdchozsnf .gt_column_spanner_outer {
+#cfiemektgm .gt_column_spanner_outer {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1668,15 +1668,15 @@ Tidyverse pipe
   padding-right: 4px;
 }
 
-#lhdchozsnf .gt_column_spanner_outer:first-child {
+#cfiemektgm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lhdchozsnf .gt_column_spanner_outer:last-child {
+#cfiemektgm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lhdchozsnf .gt_column_spanner {
+#cfiemektgm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #404E6B;
@@ -1688,11 +1688,11 @@ Tidyverse pipe
   width: 100%;
 }
 
-#lhdchozsnf .gt_spanner_row {
+#cfiemektgm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lhdchozsnf .gt_group_heading {
+#cfiemektgm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1718,7 +1718,7 @@ Tidyverse pipe
   text-align: left;
 }
 
-#lhdchozsnf .gt_empty_group_heading {
+#cfiemektgm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
@@ -1733,15 +1733,15 @@ Tidyverse pipe
   vertical-align: middle;
 }
 
-#lhdchozsnf .gt_from_md > :first-child {
+#cfiemektgm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lhdchozsnf .gt_from_md > :last-child {
+#cfiemektgm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lhdchozsnf .gt_row {
+#cfiemektgm .gt_row {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -1760,7 +1760,7 @@ Tidyverse pipe
   overflow-x: hidden;
 }
 
-#lhdchozsnf .gt_stub {
+#cfiemektgm .gt_stub {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1773,7 +1773,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#lhdchozsnf .gt_stub_row_group {
+#cfiemektgm .gt_stub_row_group {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   font-size: 100%;
@@ -1787,15 +1787,15 @@ Tidyverse pipe
   vertical-align: top;
 }
 
-#lhdchozsnf .gt_row_group_first td {
+#cfiemektgm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lhdchozsnf .gt_row_group_first th {
+#cfiemektgm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lhdchozsnf .gt_summary_row {
+#cfiemektgm .gt_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1805,16 +1805,16 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#lhdchozsnf .gt_first_summary_row {
+#cfiemektgm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_first_summary_row.thick {
+#cfiemektgm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lhdchozsnf .gt_last_summary_row {
+#cfiemektgm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1824,7 +1824,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_grand_summary_row {
+#cfiemektgm .gt_grand_summary_row {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   text-transform: inherit;
@@ -1834,7 +1834,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#lhdchozsnf .gt_first_grand_summary_row {
+#cfiemektgm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1844,7 +1844,7 @@ Tidyverse pipe
   border-top-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_last_grand_summary_row_top {
+#cfiemektgm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1854,11 +1854,11 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_striped {
+#cfiemektgm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lhdchozsnf .gt_table_body {
+#cfiemektgm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1867,7 +1867,7 @@ Tidyverse pipe
   border-bottom-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_footnotes {
+#cfiemektgm .gt_footnotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1881,7 +1881,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_footnote {
+#cfiemektgm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1890,7 +1890,7 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#lhdchozsnf .gt_sourcenotes {
+#cfiemektgm .gt_sourcenotes {
   color: #333333;
   background-color: rgba(255, 255, 255, 0);
   border-bottom-style: none;
@@ -1904,7 +1904,7 @@ Tidyverse pipe
   border-right-color: #D3D3D3;
 }
 
-#lhdchozsnf .gt_sourcenote {
+#cfiemektgm .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1912,81 +1912,81 @@ Tidyverse pipe
   padding-right: 5px;
 }
 
-#lhdchozsnf .gt_left {
+#cfiemektgm .gt_left {
   text-align: left;
 }
 
-#lhdchozsnf .gt_center {
+#cfiemektgm .gt_center {
   text-align: center;
 }
 
-#lhdchozsnf .gt_right {
+#cfiemektgm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lhdchozsnf .gt_font_normal {
+#cfiemektgm .gt_font_normal {
   font-weight: normal;
 }
 
-#lhdchozsnf .gt_font_bold {
+#cfiemektgm .gt_font_bold {
   font-weight: bold;
 }
 
-#lhdchozsnf .gt_font_italic {
+#cfiemektgm .gt_font_italic {
   font-style: italic;
 }
 
-#lhdchozsnf .gt_super {
+#cfiemektgm .gt_super {
   font-size: 65%;
 }
 
-#lhdchozsnf .gt_footnote_marks {
+#cfiemektgm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lhdchozsnf .gt_asterisk {
+#cfiemektgm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lhdchozsnf .gt_indent_1 {
+#cfiemektgm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lhdchozsnf .gt_indent_2 {
+#cfiemektgm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lhdchozsnf .gt_indent_3 {
+#cfiemektgm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lhdchozsnf .gt_indent_4 {
+#cfiemektgm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lhdchozsnf .gt_indent_5 {
+#cfiemektgm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lhdchozsnf .katex-display {
+#cfiemektgm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lhdchozsnf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cfiemektgm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
-#lhdchozsnf tbody tr:last-child {
+#cfiemektgm tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #404E6B; font-size: 14px; font-weight: 200; font-family: Chivo; vertical-align: bottom; text-transform: uppercase; border-top-width: 0px; border-top-style: solid; border-top-color: black" scope="col">Description</th>
@@ -2045,9 +2045,9 @@ Tidyverse pipe
 <section id="grouped-summaries-1" class="slide level2 center">
 <h2>Grouped Summaries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(grouping_variable) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">summary_variable =</span> <span class="fu">summary_function</span>(variable))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">summary_variable =</span> <span class="fu">summary_function</span>(variable))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <ul>
@@ -2073,8 +2073,8 @@ Tidyverse pipe
 <section id="arrange-1" class="slide level2 center">
 <h2><code>arrange()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -2085,17 +2085,17 @@ Tidyverse pipe
 <section id="this-does-not-create-a-new-data-frame" class="slide level2 center">
 <h2>This Does Not Create a New Data Frame</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="this-creates-a-new-data-frame" class="slide level2 center">
 <h2>This Creates a New Data Frame</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame_2 <span class="ot">&lt;-</span> data_frame <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>data_frame_2 <span class="ot">&lt;-</span> data_frame <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(variable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <ul>
@@ -2199,11 +2199,11 @@ Tidyverse pipe
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb15-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> inequality_data,</span>
 <span id="cb15-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> income_change, <span class="at">color =</span> income_group)</span>
 <span id="cb15-4"><a href="" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img data-src="assets/nyt-inequality-chart.png" height="400"></p>
 </section></section>
@@ -2227,12 +2227,26 @@ Tidyverse pipe
 </section>
 <section class="slide level2 center">
 
-
-<img data-src="assets/word-source-output.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Source</strong></p>
+<p><img data-src="assets/word.png"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Output</strong></p>
+<p><img data-src="assets/word.png"></p>
+</div></div>
+</section>
 <section class="slide level2 center">
 
-
-<img data-src="assets/rstudio-source-output.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Source</strong></p>
+<p><img data-src="assets/positron.png"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Output</strong></p>
+<p><img data-src="assets/word.png"></p>
+</div></div>
+<aside class="notes">
 <p>https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html#/change-your-mental-model</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -2294,51 +2308,51 @@ Tidyverse pipe
 <section id="title" class="slide level2 center">
 <h2>Title</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href=""></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href=""></a><span class="pp">---</span></span>
 <span id="cb16-2"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb16-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb16-4"><a href=""></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span>
-<span id="cb16-5"><a href=""></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="author" class="slide level2 center">
 <h2>Author</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href=""></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href=""></a><span class="pp">---</span></span>
 <span id="cb17-2"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb17-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb17-4"><a href=""></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span>
-<span id="cb17-5"><a href=""></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="format" class="slide level2 center">
 <h2>Format</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href=""></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href=""></a><span class="pp">---</span></span>
 <span id="cb18-2"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb18-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb18-4"><a href=""></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span>
-<span id="cb18-5"><a href=""></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="format-1" class="slide level2 center">
 <h2>Format</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href=""></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href=""></a><span class="pp">---</span></span>
 <span id="cb19-2"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb19-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb19-4"><a href=""></a><span class="fu">format</span><span class="kw">:</span><span class="at"> pdf</span></span>
-<span id="cb19-5"><a href=""></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="format-2" class="slide level2 center">
 <h2>Format</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href=""></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href=""></a><span class="pp">---</span></span>
 <span id="cb20-2"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb20-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb20-4"><a href=""></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb20-5"><a href=""></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-5"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="your-turn-4" class="slide level2 your-turn center">
@@ -2385,7 +2399,7 @@ Tidyverse pipe
 <p><strong>Markdown</strong></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a>Text with **some words in bold** and *some words in italics*</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a>Text with **some words in bold** and *some words in italics*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p><br> <strong>Output</strong></p>
@@ -2452,8 +2466,8 @@ Tidyverse pipe
 <p><strong>Markdown</strong></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bulleted list item #1</span>
-<span id="cb28-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bulleted list item #2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bulleted list item #1</span>
+<span id="cb28-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bulleted list item #2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p><br> <strong>Output</strong></p>
@@ -2469,8 +2483,8 @@ Tidyverse pipe
 <p><strong>Markdown</strong></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ordered list item #1</span>
-<span id="cb29-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ordered list item #2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ordered list item #1</span>
+<span id="cb29-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ordered list item #2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p><br> <strong>Output</strong></p>
@@ -2599,27 +2613,27 @@ Tidyverse pipe
 </section>
 <section id="code-chunk-options-1" class="slide level2 center">
 <h2>Code Chunk Options</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb30-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
 <span id="cb30-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb30-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="code-chunk-options-2" class="slide level2 center">
 <h2>Code Chunk Options</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb31-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
 <span id="cb31-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb31-5"><a href="" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
 <span id="cb31-6"><a href="" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
 <span id="cb31-7"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb31-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="global-chunk-options" class="slide level2 center">
 <h2>Global Chunk Options</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb32-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Report"</span></span>
 <span id="cb32-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"David Keyes"</span></span>
 <span id="cb32-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> docx</span></span>
@@ -2628,7 +2642,7 @@ Tidyverse pipe
 <span id="cb32-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb32-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb32-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb32-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <p>This is what I recommend most of the time</p>
@@ -2862,7 +2876,7 @@ Tidyverse pipe
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2974,13 +2988,14 @@ Tidyverse pipe
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

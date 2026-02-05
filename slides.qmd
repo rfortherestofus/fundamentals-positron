@@ -538,11 +538,42 @@ ggplot(
 
 ---
 
-![](assets/word-source-output.png){fig-align="center"}
+:::: {.columns}
+
+::: {.column width="50%"}
+**Source**
+
+![](assets/word.png)
+:::
+
+::: {.column width="50%"}
+**Output**
+
+![](assets/word.png)
+:::
+
+::::
 
 ---
 
-![](assets/rstudio-source-output.png){fig-align="center"}
+:::: {.columns}
+
+::: {.column width="50%"}
+**Source**
+
+![](assets/positron.png)
+:::
+
+::: {.column width="50%"}
+**Output**
+
+![](assets/word.png)
+:::
+
+::::
+
+
+
 
 ::: {.notes}
 https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html#/change-your-mental-model
