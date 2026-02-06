@@ -10,25 +10,26 @@ execute:
 
 ```{r}
 library(tidyverse)
+library(scales)
 
 penguins <- read_csv("penguins.csv")
 ```
 
-# Funders
+### Funders
 
-1. The International Society of Penguin Enthusiasts and Waddle Admirers	
-1. The Coalition of People Who Are Definitely Not Anti-Penguin
-1. The International Coalition for the Appreciation and Ethical Treatment of Penguins
- 
+1.  The **International** Society of Penguin Enthusiasts and Waddle Admirers
+2.  The Coalition of People Who Are Definitely Not Anti-Penguin
+3.  The International Coalition for the Appreciation and Ethical Treatment of Penguins
+
 They are **very** excited about this report and they *really* hope you are too.
 
 # Introduction
 
 This report is about **three** species of penguins
 
-1. Adele
-1. Gentoo
-1. Chinstrap
+1.  Adele
+2.  Gentoo
+3.  Chinstrap
 
 You'll learn *so* much about the penguins. I hope you're ready!
 
@@ -52,4 +53,34 @@ ggplot(
   )
 ) +
   geom_col(position = "dodge")
+```
+
+
+```{r}
+penguin_bill_length_by_island <-
+  penguins |>
+  group_by(island) |>
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE)) |>
+  arrange(mean_bill_length)
+
+penguin_bill_length_by_island_v2 <-
+  penguin_bill_length_by_island |>
+  mutate(
+    mean_bill_length_one_digit = number(
+      mean_bill_length,
+      accuracy = 0.1
+    )
+  )
+
+ggplot(
+  data = penguin_bill_length_by_island_v2,
+  mapping = aes(
+    x = island,
+    y = mean_bill_length_one_digit,
+    fill = island,
+    label = mean_bill_length_one_digit
+  )
+) +
+  geom_col() +
+  geom_text()
 ```
