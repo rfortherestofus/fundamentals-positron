@@ -590,13 +590,17 @@ https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html
 
 ## Your Turn {.your-turn}
 
-1. Copy the code below to create a new Quarto file, setting the author as your name, and the output format as Word.
+1. Create a new Quarto document.
+
+1. Paste the code below to into your Quarto file, keeping the title, setting the author as your name, and leaving the output format as `docx` (Word).
 
 1. Save your Quarto file as `penguins-report.qmd`.
 
-1. Look through this Quarto file and make sure that you can identify the YAML, text sections, and code chunks.
+## Your Turn {.your-turn}
 
-1. Click the Render button and open the file that gets produced (`penguins-report.docx`).
+4. Look through this Quarto file and make sure that you can identify the YAML, text sections, and code chunks.
+
+5. Click the Preview button to render your document and open the file that gets produced (`penguins-report.docx`).
 
 ## YAML {.inverse}
 

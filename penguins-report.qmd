@@ -2,10 +2,6 @@
 title: My Penguins Report
 author: David Keyes
 format: docx
-execute: 
-  echo: false
-  warning: false
-  message: false
 ---
 
 ```{r}
