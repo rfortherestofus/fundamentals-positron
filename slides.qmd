@@ -582,23 +582,21 @@ https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html
 
 ## Quarto Overview
 
-![](assets/quarto-overview.png){width=100%}
-
 ::: {.notes}
+- Show my Positron
 - Mention R Markdown
-- If you use Rmd look at my book chapter
 - You'll see a lot about other languages; we'll just focus on R
 :::
 
 ## Your Turn {.your-turn}
 
-1. Create a new Quarto file, setting the title as "Penguin Report", the author as your name, and the output format as Word.
+1. Copy the code below to create a new Quarto file, setting the author as your name, and the output format as Word.
 
-1. Save your Quarto file as report.qmd.
+1. Save your Quarto file as `penguins-report.qmd`.
 
 1. Look through this Quarto file and make sure that you can identify the YAML, text sections, and code chunks.
 
-1. Click the Render button and open the file that gets produced (`report.docx`).
+1. Click the Render button and open the file that gets produced (`penguins-report.docx`).
 
 ## YAML {.inverse}
 
@@ -619,8 +617,8 @@ https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html
 ```{yaml}
 #| code-line-numbers: "2"
 ---
-title: "My Report"
-author: "David Keyes"
+title: My Penguins Report
+author: David Keyes
 format: docx
 ---
 ```
@@ -630,8 +628,8 @@ format: docx
 ```{yaml}
 #| code-line-numbers: "3"
 ---
-title: "My Report"
-author: "David Keyes"
+title: My Penguins Report
+author: David Keyes
 format: docx
 ---
 ```
@@ -641,8 +639,8 @@ format: docx
 ```{yaml}
 #| code-line-numbers: "4"
 ---
-title: "My Report"
-author: "David Keyes"
+title: My Penguins Report
+author: David Keyes
 format: docx
 ---
 ```
@@ -652,8 +650,8 @@ format: docx
 ```{yaml}
 #| code-line-numbers: "4"
 ---
-title: "My Report"
-author: "David Keyes"
+title: My Penguins Report
+author: David Keyes
 format: pdf
 ---
 ```
@@ -671,7 +669,7 @@ format: html
 
 ## Your Turn {.your-turn}
 
-1. Go into the YAML and change the title to "My Penguins Report."
+1. Go into the YAML and change the title to "My Super Fancy Penguins Report."
 
 1. Change the output format to HTML by changing `format: docx` to `format: html`.
 

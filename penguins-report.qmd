@@ -18,15 +18,16 @@ penguins <- read_csv("penguins.csv")
 
 This report is about **three** species of penguins
 
-1. Adele
-1. Gentoo
-1. Chinstrap
+1.  Adele
+2.  Gentoo
+3.  Chinstrap
 
 You'll learn *so* much about the penguins. I hope you're ready!
 
 # Results
 
 Here is a chart showing the average bill length for penguins, grouped by island and sex.
+
 ```{r}
 penguin_bill_length_by_island_and_sex <-
   penguins |>
@@ -44,5 +45,3 @@ ggplot(
 ) +
   geom_col(position = "dodge")
 ```
-
-
