@@ -10,17 +10,25 @@ library(tidyverse)
 penguins <- read_csv("penguins.csv")
 ```
 
+# Funders
+
+1. The International Society of Penguin Enthusiasts and Waddle Admirers	
+1. The Coalition of People Who Are Definitely Not Anti-Penguin
+1. The International Coalition for the Appreciation and Ethical Treatment of Penguins
+ 
+They are **very** excited about this report and they *really* hope you are too.
+
 # Introduction
 
 This report is about **three** species of penguins
 
-1.  Adele
-2.  Gentoo
-3.  Chinstrap
+1. Adele
+1. Gentoo
+1. Chinstrap
 
 You'll learn *so* much about the penguins. I hope you're ready!
 
-# Results
+## Results
 
 Here is a chart showing the average bill length for penguins, grouped by island and sex.
 

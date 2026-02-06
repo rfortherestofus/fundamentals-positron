@@ -784,12 +784,12 @@ https://quarto.org/docs/authoring/markdown-basics.html
 
 ## Your Turn {.your-turn}
 
-1. Working in your `penguins-report.qmd` file, before Introduction, add a first-level Heading that says "Preamble"
+1. Working in your `penguins-report.qmd` file, before Introduction, add a first-level heading that says "Funders"
 
 ## Your Turn {.your-turn}
 
 ::: {.fragment .nonincremental}
-2. Add this text below the Premable first-level heading: 
+2. Add this text below the Funders first-level heading: 
 
 ::: {.small}
 > This report was commissioned by:
@@ -798,7 +798,7 @@ https://quarto.org/docs/authoring/markdown-basics.html
 > 1. The Coalition of People Who Are Definitely Not Anti-Penguin
 > 1. The International Coalition for the Appreciation and Ethical Treatment of Penguins
 > 
-> They are to get **very** excited about this report and they *really* hope you are too.
+> They are **very** excited about this report and they *really* hope you are too.
 :::
 
 Note the bold and italics!
@@ -850,12 +850,7 @@ Control + Alt + I
 
 1. Run code like you would code in an R script file
 
-1. Use buttons in RStudio
-
----
-
-![](assets/run-code-chunks.png)
-
+1. Use text buttons in Positron
 
 ## Code Chunk Options
 
@@ -866,8 +861,6 @@ Control + Alt + I
 - `message`: Do you want to display any messages R gives you?
 
 - `warning`: Do you want to display any warnings R gives you?
-
-
 
 ::: {.notes}
 message: tidyverse loading
