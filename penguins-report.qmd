@@ -2,6 +2,10 @@
 title: My Penguins Report!
 author: David Keyes
 format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
 ---
 
 ```{r}

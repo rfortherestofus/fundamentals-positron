@@ -925,12 +925,11 @@ This is what I recommend most of the time
 
 ## Your Turn {.your-turn}
 
-1. Working in your `report.qmd` file, right below the YAML, add a code chunk that loads the `tidyverse` and imports your penguins data to an object called `penguins`
+1. Working in your `penguins-report.qmd` file, add a new code chunk and copy in code to make any graph from the data visualization section of the course.
 
-1. Right below the Results Heading you added previously, create a second code chunk and add some code that you used to make a graph in the data viz section of the course.
+1. Render your document and make sure it works.
 
-1. Render your document and make sure it works!
-
+1. Adjust your code chunk options so that you do not see your code, any messages, or any warnings in the output (i.e. you should just see the text and charts).
 
 # An Important Workflow Tip {.inverse}
 
