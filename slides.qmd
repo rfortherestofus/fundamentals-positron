@@ -612,10 +612,6 @@ https://jthomasmock.github.io/quarto-in-two-hours/materials/01-intro-quarto.html
 
 - It is metadata that tells Quarto things like title, author, output format, etc.
 
----
-
-![](assets/quarto-overview-yaml.png){width=100%}
-
 ## Title
 
 ```{yaml}
