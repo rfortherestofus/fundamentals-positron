@@ -1,7 +1,7 @@
 ---
-title: My Penguins Report
+title: My Penguins Report!
 author: David Keyes
-format: docx
+format: html
 ---
 
 ```{r}
